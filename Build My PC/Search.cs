@@ -82,32 +82,44 @@ namespace Build_My_PC
             {
                 string html = string.Empty;
                 string keywords = sstp.Keywords;
-                Console.WriteLine(website + searchTermStart + keywords + searchTermEnd);
 
-                HttpWebRequest request;
-                if (i == 0)
+                try
                 {
-                    request = (HttpWebRequest)WebRequest.Create(website + searchTermStart + keywords + searchTermEnd);
-                }
-                else {
-                    request = (HttpWebRequest)WebRequest.Create(website + searchTermStart + keywords + searchTermEnd + pageSelect + (i * 20).ToString());
+                    HttpWebRequest request;
+                    if (i == 0)
+                    {
+                        request = (HttpWebRequest)WebRequest.Create(website + searchTermStart + keywords + searchTermEnd);
+                    }
+                    else
+                    {
+                        request = (HttpWebRequest)WebRequest.Create(website + searchTermStart + keywords + searchTermEnd + pageSelect + (i * 20).ToString());
 
-                }
-                request.AutomaticDecompression = DecompressionMethods.GZip;
+                    }
+                    request.AutomaticDecompression = DecompressionMethods.GZip;
+                    request.UserAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
+                    request.KeepAlive = false;
+                    request.Proxy = null;
 
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    html = reader.ReadToEnd();
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    using (Stream stream = response.GetResponseStream())
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        html = reader.ReadToEnd();
+                    }
                 }
+                catch(WebException ex){
+                    using (StreamReader reader = new StreamReader(ex.Response.GetResponseStream()))
+                        html = reader.ReadToEnd();
+                }
+
 
                 tempDoc.LoadHtml(html);
                 sr.AddGoogleResults(tempDoc);
-                Thread.Sleep(200 * i);
+                Thread.Sleep(1000 * i);
             }
 
             searchResults.Add(sr);
+            Console.WriteLine("DONE: " + sstp.Identifier);
         }
 
         private void GoogleSearchHandler(object data)
@@ -116,6 +128,7 @@ namespace Build_My_PC
 
             SearchParameters sp = new SearchParameters(tp.searchBudget, tp.isAMD);
 
+            Task[] tasks = new Task[8];
             Thread[] threads = new Thread[8];
 
             SingleSearchThreadParams sstpTemp;
@@ -158,7 +171,7 @@ namespace Build_My_PC
                 int threadCounter = 0;
                 for (int i = 0; i < threads.Length; i++)
                 {
-                    if (threads[0].IsAlive)
+                    if (threads[0].ThreadState != ThreadState.Stopped || threads[0].ThreadState == ThreadState.Running || threads[0].IsAlive)
                     {
                         threadCounter++;
                     }
