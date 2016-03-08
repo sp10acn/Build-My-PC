@@ -98,6 +98,7 @@ namespace Build_My_PC
                     request.AutomaticDecompression = DecompressionMethods.GZip;
                     request.UserAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
                     request.KeepAlive = false;
+                    request.AllowAutoRedirect = true;
                     request.Proxy = null;
 
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -115,6 +116,7 @@ namespace Build_My_PC
 
                 tempDoc.LoadHtml(html);
                 sr.AddGoogleResults(tempDoc);
+                sr.AddGoogleResults2(tempDoc);
                 Thread.Sleep(1000 * i);
             }
 

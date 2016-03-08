@@ -48,6 +48,58 @@ namespace Build_My_PC
             sr.Clear();
         }
 
+        public void AddGoogleResults2(HtmlDocument doc)
+        {
+            HtmlNode rn = doc.DocumentNode;
+            foreach (HtmlNode n in rn.Descendants("div"))
+            {
+                foreach (HtmlAttribute att in n.Attributes)
+                {
+                    if (att.Value.Equals("psli"))
+                    {
+                        string title = "failed";
+                        string price = "failed";
+                        string storeCount = "failed";
+                        string link = "failed";
+
+                        foreach (HtmlNode n2 in n.Descendants("a"))
+                        {
+                            foreach (HtmlAttribute att2 in n2.Attributes)
+                            {
+                                if (att2.Value.Equals("pstl"))
+                                {
+                                    // Title and Link
+                                    link = googleAddress + n2.Attributes["href"].Value;
+                                    title = n2.InnerText;
+                                }
+                            }
+                        }
+                        
+                        foreach (HtmlNode n2 in n.Descendants("div"))
+                        {
+                            foreach (HtmlAttribute att2 in n2.Attributes)
+                            {
+                                if (att2.Value.Equals("_tyb shop__secondary"))
+                                {
+                                    // Price
+                                    price = n2.FirstChild.FirstChild.InnerText;
+                                    storeCount = n2.InnerText;
+                                }
+                            }
+                        }
+
+                        price = price.Substring(1);
+                        float priceFloat;
+                        float.TryParse(price, out priceFloat);
+                        sr.Add(new SearchResult(title,
+                            priceFloat,
+                            storeCount,
+                            link));
+                    }
+                }
+            }
+        }
+
         public void AddGoogleResults(HtmlDocument doc) {
             HtmlNode rn = doc.DocumentNode;
             foreach (HtmlNode n in rn.Descendants("div"))
