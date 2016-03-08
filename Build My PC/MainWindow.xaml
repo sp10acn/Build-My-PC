@@ -21,7 +21,6 @@
             <ProgressBar x:Name="pbProgress" Height="10" Margin="10,10,10,0" VerticalAlignment="Top" SmallChange="1"/>
             <CheckBox x:Name="chkAMD" Content="AMD" Margin="10,25,0,0" VerticalAlignment="Top"/>
             <CheckBox x:Name="chkSSD" Content="SSD" Margin="10,48,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="chkGraphicsCard" Content="Graphics Card" Margin="10,71,0,0" VerticalAlignment="Top"/>
             <Slider x:Name="sldBudgetSlider" Margin="10,180,10,0" VerticalAlignment="Top" SmallChange="1" Maximum="1200" Minimum="100" IsSnapToTickEnabled="True" ValueChanged="sldBudgetSlider_ValueChanged"/>
             <Label x:Name="lblBudgetSlider" Content="Price: 100" Margin="10,149,0,0" VerticalAlignment="Top"/>
             <Slider x:Name="sldIntensity" Margin="10,126,10,0" VerticalAlignment="Top" SmallChange="1" Minimum="1" IsSnapToTickEnabled="True" ValueChanged="slider_ValueChanged"/>

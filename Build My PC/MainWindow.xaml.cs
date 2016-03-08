@@ -41,10 +41,9 @@ namespace Build_My_PC
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            // This is wrong, create a thread the creates a thread[] and loops it checking progress.
-
-            
-            search.PerformSearch((int)sldBudgetSlider.Value, (bool)chkAMD.IsChecked, (int)sldIntensity.Value);
+            stackResults.Children.Clear();
+            search.ClearSearchResults();
+            search.PerformSearch((int)sldBudgetSlider.Value, (bool)chkAMD.IsChecked, (bool)chkSSD.IsChecked, (int)sldIntensity.Value);
         }
 
         private void sldBudgetSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

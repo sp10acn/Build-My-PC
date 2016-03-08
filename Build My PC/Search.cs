@@ -17,11 +17,13 @@ namespace Build_My_PC
         public struct MainSearchThreadParams {
             public int searchBudget;
             public bool isAMD;
+            public bool isSSD;
             public int searchIntensity;
-            public MainSearchThreadParams(int budget, bool amd, int intensity)
+            public MainSearchThreadParams(int budget, bool amd, bool ssd, int intensity)
             {
                 searchBudget = budget;
                 isAMD = amd;
+                isSSD = ssd;
                 searchIntensity = intensity;
             }
         }
@@ -59,9 +61,13 @@ namespace Build_My_PC
             isSearchComplete = false;
         }
 
-        public void PerformSearch(int budget, bool amd, int intensity) {
+        public void ClearSearchResults() {
+            searchResults.Clear();
+        }
+
+        public void PerformSearch(int budget, bool amd, bool ssd, int intensity) {
             isSearchComplete = false;
-            MainSearchThreadParams mainSearchThreadParams = new MainSearchThreadParams(budget, amd, intensity);
+            MainSearchThreadParams mainSearchThreadParams = new MainSearchThreadParams(budget, amd, ssd, intensity);
 
             Thread threadSearch = new Thread(GoogleSearchHandler);
             threadSearch.Start(mainSearchThreadParams);
@@ -153,12 +159,14 @@ namespace Build_My_PC
             sstpTemp = new SingleSearchThreadParams(sp.keywords.StorageHDD, "Storage HDD", tp.searchIntensity);
             threads[3] = new Thread(GoogleSearch);
             threads[3].IsBackground = true;
-            threads[3].Start(sstpTemp);
+            if (!tp.isSSD)
+                threads[3].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.StorageSSD, "Storage SSD", tp.searchIntensity);
             threads[4] = new Thread(GoogleSearch);
             threads[4].IsBackground = true;
-            threads[4].Start(sstpTemp);
+            if (tp.isSSD)
+                threads[4].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.Case, "Case", tp.searchIntensity);
             threads[5] = new Thread(GoogleSearch);
@@ -181,7 +189,7 @@ namespace Build_My_PC
                 int threadCounter = 0;
                 for (int i = 0; i < threads.Length; i++)
                 {
-                    if (threads[i].ThreadState != ThreadState.Stopped || threads[i].ThreadState == ThreadState.Running || threads[i].IsAlive)
+                    if (threads[i].IsAlive)
                     {
                         threadCounter++;
                     }
