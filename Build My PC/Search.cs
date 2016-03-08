@@ -135,34 +135,42 @@ namespace Build_My_PC
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.Cpu, "CPU", tp.searchIntensity);
             threads[0] = new Thread(GoogleSearch);
+            threads[0].IsBackground = true;
             threads[0].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.Motherboard, "Motherboard", tp.searchIntensity);
             threads[1] = new Thread(GoogleSearch);
+            threads[1].IsBackground = true;
             threads[1].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.Memory, "Memory", tp.searchIntensity);
             threads[2] = new Thread(GoogleSearch);
+            threads[2].IsBackground = true;
             threads[2].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.StorageHDD, "Storage HDD", tp.searchIntensity);
             threads[3] = new Thread(GoogleSearch);
+            threads[3].IsBackground = true;
             threads[3].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.StorageSSD, "Storage SSD", tp.searchIntensity);
             threads[4] = new Thread(GoogleSearch);
+            threads[4].IsBackground = true;
             threads[4].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.Case, "Case", tp.searchIntensity);
             threads[5] = new Thread(GoogleSearch);
+            threads[5].IsBackground = true;
             threads[5].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.GraphicCard, "Graphics Card", tp.searchIntensity);
             threads[6] = new Thread(GoogleSearch);
+            threads[6].IsBackground = true;
             threads[6].Start(sstpTemp);
 
             sstpTemp = new SingleSearchThreadParams(sp.keywords.PowerSupply, "Power Supply", tp.searchIntensity);
             threads[7] = new Thread(GoogleSearch);
+            threads[7].IsBackground = true;
             threads[7].Start(sstpTemp);
 
             bool isRunning = true;
@@ -171,7 +179,7 @@ namespace Build_My_PC
                 int threadCounter = 0;
                 for (int i = 0; i < threads.Length; i++)
                 {
-                    if (threads[0].ThreadState != ThreadState.Stopped || threads[0].ThreadState == ThreadState.Running || threads[0].IsAlive)
+                    if (threads[i].ThreadState != ThreadState.Stopped || threads[i].ThreadState == ThreadState.Running || threads[i].IsAlive)
                     {
                         threadCounter++;
                     }
