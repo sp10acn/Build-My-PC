@@ -1,0 +1,36 @@
+$300
+cpu - 40%
+Motherboard - 19.3%
+Memory - 7.66%
+Storage - 16.66%
+Case - 7.33%
+Graphic Card - 0%
+Power Supply - 6.66%
+
+$600
+cpu - 30.67%
+Motherboard - 7.14%
+Memory - 8.59%
+Storage - 8.17%
+Graphic Card - 29.83%
+Case - 7.33%
+Power Supply - 5.83%
+
+$1200
+cpu - 28.5%
+Motherboard - 8.3%
+Memory - 6.25%
+Storage - 15% SSD 6.75% HDD
+Graphic Card - 26.67%
+Case - 7.5%
+Power Supply - 3.75%
+
+Logic:
+Define percentage rule sets based on these percentages.
+Define parameters for ssd or HDD, graphics card or no graphics card, amd or intel etc
+Calculate pricranges for rule set.
+Create search term set base on parameters and prices.
+
+Perform serches.
+Filter results to within price ranges.
+Display Results.

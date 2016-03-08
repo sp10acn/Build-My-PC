@@ -1,0 +1,187 @@
+<PriceRanges>
+
+<_300>
+	<Cpu>
+		<MIN>0</MIN>
+		<MAX>140</MAX>
+	</Cpu>
+	<Motherboard>
+		<MIN>0</MIN>
+		<MAX>60</MAX>
+	</Motherboard>
+	<Memory>
+		<MIN>0</MIN>
+		<MAX>30</MAX>
+	</Memory>
+	<Storage>
+		<HDD>
+			<MIN>0</MIN>
+			<MAX>0</MAX>
+		</HDD>
+		<SSD>
+			<MIN>0</MIN>
+			<MAX>48</MAX>
+		</SSD>
+	</Storage>
+	<Case>
+		<MIN>0</MIN>
+		<MAX>30</MAX>
+	</Case>
+	<GraphicCard>
+		<MIN>0</MIN>
+		<MAX>0</MAX>
+	</GraphicCard>
+	<PowerSupply>
+		<MIN>0</MIN>
+		<MAX>30</MAX>
+	</PowerSupply>
+</_300>
+
+<_600>
+	<Cpu>
+		<MIN>140</MIN>
+		<MAX>240</MAX>
+	</Cpu>
+	<Motherboard>
+		<MIN>60</MIN>
+		<MAX>100</MAX>
+	</Motherboard>
+	<Memory>
+		<MIN>30</MIN>
+		<MAX>60</MAX>
+	</Memory>
+	<Storage>
+		<HDD>
+			<MIN>30</MIN>
+			<MAX>45</MAX>
+		</HDD>
+		<SSD>
+			<MIN>0</MIN>
+			<MAX>90</MAX>
+		</SSD>
+	</Storage>
+	<Case>
+		<MIN>30</MIN>
+		<MAX>45</MAX>
+	</Case>
+	<GraphicCard>
+		<MIN>120</MIN>
+		<MAX>250</MAX>
+	</GraphicCard>
+	<PowerSupply>
+		<MIN>30</MIN>
+		<MAX>50</MAX>
+	</PowerSupply>
+</_600>
+
+<_900>
+	<Cpu>
+		<MIN>220</MIN>
+		<MAX>350</MAX>
+	</Cpu>
+	<Motherboard>
+		<MIN>100</MIN>
+		<MAX>200</MAX>
+	</Motherboard>
+	<Memory>
+		<MIN>45</MIN>
+		<MAX>100</MAX>
+	</Memory>
+	<Storage>
+		<HDD>
+			<MIN>45</MIN>
+			<MAX>80</MAX>
+		</HDD>
+		<SSD>
+			<MIN>50</MIN>
+			<MAX>120</MAX>
+		</SSD>
+	</Storage>
+	<Case>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</Case>
+	<GraphicCard>
+		<MIN>220</MIN>
+		<MAX>360</MAX>
+	</GraphicCard>
+	<PowerSupply>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</PowerSupply>
+</_900>
+
+<_1200>
+	<Cpu>
+		<MIN>220</MIN>
+		<MAX>350</MAX>
+	</Cpu>
+	<Motherboard>
+		<MIN>100</MIN>
+		<MAX>200</MAX>
+	</Motherboard>
+	<Memory>
+		<MIN>45</MIN>
+		<MAX>100</MAX>
+	</Memory>
+	<Storage>
+		<HDD>
+			<MIN>45</MIN>
+			<MAX>80</MAX>
+		</HDD>
+		<SSD>
+			<MIN>50</MIN>
+			<MAX>120</MAX>
+		</SSD>
+	</Storage>
+	<Case>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</Case>
+	<GraphicCard>
+		<MIN>220</MIN>
+		<MAX>360</MAX>
+	</GraphicCard>
+	<PowerSupply>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</PowerSupply>
+</_1200>
+<_MORE>
+	<Cpu>
+		<MIN>220</MIN>
+		<MAX>350</MAX>
+	</Cpu>
+	<Motherboard>
+		<MIN>100</MIN>
+		<MAX>200</MAX>
+	</Motherboard>
+	<Memory>
+		<MIN>45</MIN>
+		<MAX>100</MAX>
+	</Memory>
+	<Storage>
+		<HDD>
+			<MIN>45</MIN>
+			<MAX>80</MAX>
+		</HDD>
+		<SSD>
+			<MIN>50</MIN>
+			<MAX>120</MAX>
+		</SSD>
+	</Storage>
+	<Case>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</Case>
+	<GraphicCard>
+		<MIN>220</MIN>
+		<MAX>360</MAX>
+	</GraphicCard>
+	<PowerSupply>
+		<MIN>45</MIN>
+		<MAX>80</MAX>
+	</PowerSupply>
+</_MORE>
+
+</PriceRanges>
